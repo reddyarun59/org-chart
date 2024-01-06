@@ -3,25 +3,73 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  width: fit-content;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.tree li::before,
+.tree li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 2.5px solid #d1d5db;
+  width: 50%;
+  height: 56px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.arrow {
+  border: solid grey;
+  border-width: 0 2px 2px 0;
+  position: absolute;
+
+  padding: 3px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 2.5px solid #d1d5db;
+}
+
+.tree li:only-child::after,
+.tree li:only-child::before {
+  display: none;
+}
+
+.tree li:only-child {
+  padding-top: 0;
+}
+
+.tree li:first-child::before,
+.tree li:last-child::after {
+  border: 0 none;
+}
+
+.tree li:last-child::before {
+  border-right: 2.5px solid #d1d5db;
+  border-radius: 0 10px 0 0;
+}
+
+.tree li:first-child::after {
+  border-radius: 10px 0 0 0;
+}
+
+.tree ul ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 56px;
+  border-left: 2.5px solid #d1d5db;
+}
+
+.zoomable {
+  transition: transform 0.3s ease-in-out;
+  border: 1px solid #ccc;
+  padding: 20px;
 }
