@@ -46,7 +46,7 @@ const OrgChart = () => {
       data-testid="employee-tree-root"
     >
       <div className="w-full mx-auto text-4xl mb-20 ">
-        Organisation ChartChart 💻
+        Organisation Chart 💻
       </div>
 
       <ul className="relative flex flex-row items-baseline justify-center">
